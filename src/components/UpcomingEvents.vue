@@ -6,7 +6,7 @@
           >acinia viverra lectus. Fusce imperdiet</span
         >
         <h2 class="mb-0">
-          There are many upcoming events during this end of year
+          There are many upcoming events during this end of yearrrr
         </h2>
       </div>
       <!-- Sec Title -->
