@@ -23,10 +23,10 @@
                 <div>
                     <ul class="mb-0 list-unstyled d-inline-flex">
                         <li class="menu-item">
-                            <router-link to="/">Home</router-link>
+                            <router-link to="/">ទំព័រដើម</router-link>
                         </li>
                         <li class="menu-item">
-                            <router-link to="/event">Events</router-link>
+                            <router-link to="/event">កម្មវិធី</router-link>
                         </li>
                         <!-- <li class="menu-item-has-children">
                             <a href="javascript:void(0);" title="">Events</a>
@@ -43,17 +43,22 @@
                         </li> -->
                         
                         <li class="menu-item">
-                            <router-link to="/blog">News</router-link>
+                            <router-link to="/news">ពត៌មាន</router-link>
                         </li>
                         <li class="menu-item">
-                            <router-link to="/aboutus">About Us</router-link>
+                            <router-link to="/about">អំពីខ្ញុំ</router-link>
                         </li>
                         <li class="menu-item">
-                            <router-link to="/contactus">Contact Us</router-link>
+                            <router-link class="text-xl" to="/contact">ទំនាក់ទំនងមក</router-link>
                         </li>
-                        <li class="menu-item">
-                            <router-link to="/login">Upload Event</router-link>
-                        </li>
+                        <button class="menu-item">
+                            <router-link to="/login">
+                                <h4 class="!text-white cursor-pointer mb-3 px-4 py-3 !border-2 !border-[#cf4328]
+                                hover:bg-[#cf4328] group-hover:text-white">
+                                    បង្ហេាះព្រឹត្តិការ
+                                </h4> 
+                            </router-link>
+                        </button>
                     </ul>
                 </div>
             </nav>
