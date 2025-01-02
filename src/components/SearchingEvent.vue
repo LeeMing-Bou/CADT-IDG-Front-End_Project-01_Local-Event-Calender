@@ -11,29 +11,31 @@
                             
                             ព្រឹត្តិការណ៍នាពេលខាងមុខនៅជុំវិញអ្នក...
                         </h2>
-                        <form class="dir-form d-flex">
+                        <form class="dir-form d-flex" @submit.prevent="submitForm">
                             <div class="field">
                                 <label class="thm-clr">ខ្ញុំកំពុងចង់រកអំពី...</label>
-                                <input type="text" placeholder="ឈ្មេាះកម្មវិធី" />
+                                <input type="text" v-model="title" placeholder="ឈ្មេាះកម្មវិធី" />
                                 <i class="fas fa-search"></i>
                             </div>
                             <div class="field loc">
                                 <label class="thm-clr">ទីតាំង</label>
-                                <input type="text" placeholder="ភ្នំពេញ" />
+                                <input type="text" v-model="address" placeholder="ភ្នំពេញ" />
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="field slc">
                                 <div class="slc-wp">
-                                    <select>
-                                        <option>គ្រប់ប្រភេទកម្មវិធី</option>
-                                        <option>ការតាំងពិពណ៌</option>
-                                        <option>សិក្ខាសាលា</option>
-                                        <option>កិច្ចប្រជុំ</option>
+                                    <select v-model="category">
+                                        <option value="">គ្រប់ប្រភេទកម្មវិធី</option>
+                                        <option value="exhibition">ការតាំងពិពណ៌</option>
+                                        <option value="seminar">សិក្ខាសាលា</option>
+                                        <option value="conference">កិច្ចប្រជុំ</option>
+                                        <option value="social event">កម្មវិធីសង្គម</option>
+                                        
                                     </select>
                                 </div>
                             </div>
                             <button class="thm-btn" type="submit">
-                                <i class="fas fa-search"></i>ស្វែងរកឥឡូវនេះ
+                              <i class="fas fa-search"></i>ស្វែងរកឥឡូវនេះ
                             </button>
                         </form>
                         <!-- <div class="dir-cate-wrap text-center w-100">
@@ -77,4 +79,35 @@
             </div>
         </div>
     </section>
+  
 </template>
+<script>
+import { searchStore } from '@/stores/searchStore';
+import axios from 'axios';
+import { mapActions } from 'pinia';
+import SearchEvent from './searchEvent.vue';
+
+export default{
+  components: { SearchEvent },
+  data(){
+    return {
+      event: '',
+      
+        title: '',
+        address: '',
+        category: '',
+      
+    }
+  },
+  methods: {
+
+        ...mapActions(searchStore, ['searchEvent']),
+        async submitForm() {
+            await this.searchEvent(this.title, this.address, this.category)
+            this.$router.push('/search-event')
+        }
+    },
+
+  }
+</script>
+
