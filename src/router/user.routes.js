@@ -20,6 +20,11 @@ export const userRoutes = {
             component: () => import('@/views/user/events/EventDetail.vue'),
         },
         {
+            path: 'news/:id',
+            name: 'news-detail',
+            component: () => import('@/views/user/events/newsDetail.vue'),
+        },
+        {
             path: 'events/uploadEvent',
             name: 'uploadEvent',
             component: () => import('@/views/user/events/uploadEvent.vue'),
@@ -28,6 +33,26 @@ export const userRoutes = {
             path: 'events/edit-event/:id',
             name: 'edit-event',
             component: () => import('@/views/user/events/edit-event.vue'),
+        },
+        {
+            path: 'news/edit-news/:id',
+            name: 'edit-news',
+            component: () => import('@/views/user/events/editNews.vue'),
+        },
+        {
+            path: 'events/uploadNews',
+            name: 'uploadNews',
+            component: () => import('@/views/user/events/uploadNews.vue'),
+        },
+        {
+            path: '/user/event',
+            name: 'events',
+            component: () => import('@/views/user/event.vue'),
+        },
+        {
+            path: '/user/news',
+            name: 'News',
+            component: () => import('@/views/user/news.vue'),
         },
         // Schedule/Calendar
         {
@@ -47,8 +72,8 @@ export const userRoutes = {
             path: 'profile',
             children: [
                 {
-                    path: '',
-                    name: 'user-profile',
+                    path: '/user/profile',
+                    name: 'profile',
                     component: () => import('@/views/user/UserProfile.vue'),
                 },
                 {
@@ -57,7 +82,7 @@ export const userRoutes = {
                     component: () => import('@/views/user/UserProfile.vue'),
                 },
                 {
-                    path: 'edit',
+                    path: '/user/edit',
                     name: 'user-profile-edit',
                     component: () => import('@/views/profile/ProfileEdit.vue'),
                 },
